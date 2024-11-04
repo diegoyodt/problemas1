@@ -1,0 +1,70 @@
+# Ejercicio 1
+VF1 = calcular_valor_futuro(1000, 36/12, 4)
+print(f'Ejercicio 1: Importe acumulado al final del cuarto mes: S/. {VF1:.2f}')
+
+# Ejercicio 2
+VF2 = calcular_valor_futuro(500 * 0.20, 3, 6)
+print(f'Ejercicio 2: Importe acumulado al final del sexto mes: S/. {VF2:.2f}')
+
+# Ejercicio 3
+PV3 = calcular_valor_presente(500, 4, 12)
+print(f'Ejercicio 3: Valor presente de los pagos anticipados: S/. {PV3:.2f}')
+
+# Ejercicio 4
+VF4 = calcular_valor_futuro(250, 36/4, 8)
+total_a_cancelar = VF4 + 250
+print(f'Ejercicio 4: Importe total a cancelar: S/. {total_a_cancelar:.2f}')
+
+# Ejercicio 5
+PV5 = calcular_valor_presente(200, 2, 12)
+print(f'Ejercicio 5: Precio de contado de la maquinaria: S/. {PV5:.2f}')
+
+# Ejercicio 6
+cuota6 = 13000 / ((1 + 0.04) * (((1 + 0.04)**6 - 1) / 0.04))
+print(f'Ejercicio 6: Cuota mensual necesaria: S/. {cuota6:.2f}')
+
+# Ejercicio 7
+cuota7 = 5000 / ((1 + 0.05) * (((1 + 0.05)**4 - 1) / 0.05))
+print(f'Ejercicio 7: Cuota mensual necesaria: S/. {cuota7:.2f}')
+
+# Ejercicio 8
+cuota8 = 5000 / ((1 + 0.03) * (((1 + 0.03)**12 - 1) / 0.03))
+print(f'Ejercicio 8: Cuota mensual: S/. {cuota8:.2f}')
+
+# Ejercicio 9
+cuota9 = 10000 / ((1 + 0.0208) * (((1 + 0.0208)**7 - 1) / (0.0208 * (1 + 0.0208)**7)))
+print(f'Ejercicio 9: Importe de las cuotas: S/. {cuota9:.2f}')
+
+# Ejercicio 10
+import math
+n10 = math.log((2000 * 0.00995049) / (150 * (1 + 0.00995049))) / math.log(1 + 0.00995049)
+print(f'Ejercicio 10: Depósitos quincenales necesarios: {math.ceil(n10)}')
+
+# Ejercicio 11
+n11 = math.log(2000 * 0.03 / (250 * (1 + 0.03)) + 1) / math.log(1 + 0.03)
+print(f'Ejercicio 11: Depósitos mensuales necesarios: {math.ceil(n11)}')
+
+# Ejercicio 12
+TEM = (1 + 0.06)**(1/3) - 1
+n12 = -math.log(1 - (8500 * TEM / 1650)) / math.log(1 + TEM)
+print(f'Ejercicio 12: Cuotas necesarias: {math.ceil(n12)}')
+
+# Ejercicio 13
+n13 = -math.log(1 - (1200 * 0.04 / 100)) / math.log(1 + 0.04)
+print(f'Ejercicio 13: Cuotas necesarias: {math.ceil(n13)}')
+
+# Ejercicio 14
+from scipy.optimize import fsolve
+
+def ecuacion_14(i):
+    return 1200 - 120 * ((1 - (1 + i)**(-12)) * (1 + i) / i)
+
+TEM_14 = fsolve(ecuacion_14, 0.01)[0]
+print(f'Ejercicio 14: TEM cargada: {TEM_14:.2%}')
+
+# Ejercicio 15
+def ecuacion_15(i):
+    return 2500 - 450 * ((1 - (1 + i)**(-6)) * (1 + i) / i)
+
+TNA_15 = fsolve(ecuacion_15, 0.01)[0] * 12
+print(f'Ejercicio 15: TNA: {TNA_15:.2%}')
